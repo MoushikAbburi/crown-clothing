@@ -1,8 +1,7 @@
-import { getByTitle } from "@testing-library/react";
 import React from "react";
-import menuItemComponents from "../menu-item/menu-item.components";
 
 import "./Collection-preview.styles.scss";
+import CollectionItem from "../Collection-item/Collection-item.components";
 
 const CollectionPreview = ({ title, items }) => (
   <div className="collection-preview">
@@ -10,8 +9,8 @@ const CollectionPreview = ({ title, items }) => (
     <div className="preview">
       {items
         .filter((item, idx) => idx < 4)
-        .map((item) => (
-          <div key={item.id}>{item.name}</div>
+        .map(({ id, ...otherItemprops }) => (
+          <CollectionItem key={id} {...otherItemprops} />
         ))}
     </div>
   </div>
