@@ -4,6 +4,7 @@ import ShopPage from "../src/Pages/Shop/shop.components";
 
 import "./App.css";
 import Homepage from "./Pages/Homepage/Homepage.components";
+import SignInAndSignUpPage from "./Pages/sign-in-and-sign-up/sign-in-and-sign-up.components";
 import Header from "../src/Components/Header/Header.components";
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
       <Switch>
         <Route exact path="/" component={Homepage} />
         <Route exact path="/shop" component={ShopPage} />
+        <Route exact path="/signin" component={SignInAndSignUpPage} />
       </Switch>
     </div>
   );
