@@ -11,6 +11,7 @@ import { auth, createUserProfileDocument } from "./Firebase/firebase.utils";
 class App extends React.Component {
   constructor() {
     super();
+
     this.state = {
       currentUser: null,
     };
@@ -24,15 +25,14 @@ class App extends React.Component {
         const userRef = await createUserProfileDocument(userAuth);
 
         userRef.onSnapshot((snapShot) => {
-          this.setState(
-            {
-              currentUser: {
-                id: snapShot.id,
-                ...snapShot.data(),
-              },
+          this.setState({
+            currentUser: {
+              id: snapShot.id,
+              ...snapShot.data(),
             },
-            () => console.log(this.state)
-          );
+          });
+
+          console.log(this.state);
         });
       } else {
         this.setState({ currentUser: userAuth });
@@ -46,12 +46,12 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="App">
+      <div>
         <Header currentUser={this.state.currentUser} />
         <Switch>
           <Route exact path="/" component={Homepage} />
-          <Route exact path="/shop" component={ShopPage} />
-          <Route exact path="/signin" component={SignInAndSignUpPage} />
+          <Route path="/shop" component={ShopPage} />
+          <Route path="/signin" component={SignInAndSignUpPage} />
         </Switch>
       </div>
     );
