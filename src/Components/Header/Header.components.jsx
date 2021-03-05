@@ -1,7 +1,7 @@
 import React from "react";
 
 import { ReactComponent as Logo } from "../../Assets/crown.svg";
-import { auth } from "../../Firebase/firebase.utils";
+
 import { connect } from "react-redux";
 import CartIcon from "../Cart-icon/cart-icon.components";
 import CartDropdown from "../Cart-dropdown/cart-dropdown.components";
