@@ -18,4 +18,9 @@ export const ClearItemFromCart = (item) => ({
   type: cartActionTypes.CLEAR_ITEM_FROM_CART,
   payload: item,
 });
+
+export const clearCart = () => ({
+  type: cartActionTypes.CLEAR_CART,
+});
+
 export default ToggleCartHidden;
