@@ -4,7 +4,6 @@ import { connect } from "react-redux";
 import "./sign-in.styles.scss";
 import FormInput from "../../Components/form-input/form-input.components";
 import CustomButton from "../Custom-button/custom-button.components";
-import { auth, signInWithGoogle } from "../../Firebase/firebase.utils";
 
 import {
   googleSignInStart,
@@ -23,17 +22,12 @@ class SignIn extends React.Component {
 
   handleSubmit = async (event) => {
     event.preventDefault();
+
     const { emailSignInStart } = this.props;
 
     const { email, password } = this.state;
 
     emailSignInStart(email, password);
-    // try {
-    //   await auth.signInWithEmailAndPassword(email, password);
-    //   this.setState({ email: "", password: "" });
-    // } catch (error) {
-    //   console.log(error);
-    // }
   };
 
   handleChange = (event) => {
